@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../tools/tools.js"></script>
+    <script>
+        document.body.style.backgroundColor = '#000';
+        setInterval(createImg,50);
+        function createImg(){
+            var oImg = document.createElement('img');
+            oImg.src = './img/star.jpg';
+            document.body.appendChild(oImg);
+            var num = getRandom(10,30);
+            oImg.width = oImg.height = num;
+            oImg.style.position = 'absolute';
+            var imgL = getRandom(0,window.innerWidth - num);
+            var imgT = getRandom(0,window.innerHeight - num);
+            oImg.style.left = imgL + 'px';
+            oImg.style.top = imgT + 'px';
+        }
+    </script>
+</body>
+</html>
