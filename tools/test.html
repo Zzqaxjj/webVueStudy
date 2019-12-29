@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="tools.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        li{
+            text-align: center;
+            width: 80px;
+            float: left;
+        }
+        #items {
+            clear: both;
+            display: none;
+        }
+        #items2 {
+            clear: both;
+            display: none;
+        }
+        #msg {
+            display: none;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var item = document.getElementById('item');
+            var item2 = document.getElementById('item2');
+            var items = document.getElementById('items');
+            var items2 = document.getElementById('items2');
+            var lis = document.getElementsByTagName('li');
+            item.onmouseover = function() {
+                items.style.display = 'block';
+            }
+            item.onmouseout = function() {
+                items.style.display = 'none';
+            }
+
+            for (var i=2;i<7;i++) {
+                if (i%2) {
+                    lis[i].style.backgroundColor = 'yellow';
+                } else {
+                    lis[i].style.backgroundColor = 'skyblue';
+                }
+            }
+
+            item2.onmouseover = function() {
+                items2.style.display = 'block';
+            }
+            item2.onmouseout = function() {
+                items2.style.display = 'none';
+            }
+
+            for (var i=8;i<13;i++) {
+                (function(){
+                    lis[i].onmouseover = function(){
+                        this.style.backgroundColor = 'red';
+                    }
+                    lis[i].onmouseout = function(){
+                        this.style.backgroundColor = 'white';
+                    }
+                })(i)
+            }
+
+            var sel = document.getElementById('sel');
+            sel.onchange = function() {
+                document.body.style.backgroundColor = this.value;
+            }
+            /* 练习4
+                文本框获取焦点，清空信息
+                文本框失去焦点时，
+                如果为空 ，提示  不能为空，
+                如果为非数字，提示不合法，
+                如果长度小于6，提示“长度不够”
+                如果为数字，提示正确
+            */
+            var txt = document.getElementsByTagName('input')[0];
+            var msg = document.getElementById('msg');
+            txt.onblur = function() {
+                if (this.value == '') {
+                    msg.innerHTML = '不能为空';
+                    msg.style.color = 'red';
+                    msg.style.display = 'block';
+                } else if (isNaN(this.value)){
+                    msg.innerHTML = '不合法';
+                    msg.style.color = 'red';
+                    msg.style.display = 'block';
+                } else if (this.value.length < 6) {
+                    msg.innerHTML = '长度不够';
+                    msg.style.color = 'red';
+                    msg.style.display = 'block';
+                } else {
+                    msg.innerHTML = '正确';
+                    msg.style.color = 'green';
+                    msg.style.display = 'block';
+                }
+            }
+            txt.onfocus = function() {
+                this.value = '';
+            }
+        }
+    </script>
+    <script>
+        var start = new Date();
+        var end = new Date('2019-12-01 0:0:0')
+        console.log(countDown(start,end))
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" style='width: 200px;float: left;' name="" id="txt" value="请输入6位数字" /><span id='msg'></span>
+        <ul id='head'>
+            <li>首页</li>
+            <li id='item'>新闻
+                <ol id='items'>
+                    <li>头条新闻1</li>
+                    <li>头条新闻2</li>
+                    <li>头条新闻3</li>
+                    <li>头条新闻4</li>
+                    <li>头条新闻5</li>
+                </ol>
+            </li>
+            <li id='item2'>备注
+                <ol id='items2'>
+                    <li>备注1</li>
+                    <li>备注2</li>
+                    <li>备注3</li>
+                    <li>备注4</li>
+                    <li>备注5</li>
+                </ol>
+            </li>
+            <li>
+                <select name="sel" id="sel">
+                    <option value="">请选择背景色</option>
+                    <option value="red">红色</option>
+                    <option value="black">黑色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="skyblue">天蓝</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <script>
+        
+        /* ES6 */
+        // let arr = [22,33,44,[1,2]];
+        // let a,b,c,d,e;
+        // [a,b,c,[d,e]] = arr;
+        // function max() {
+        //     let arr = Array.from(arguments);
+        //     let newArr = [];
+        //     arr.forEach((item,index)=>{
+        //         if (index > 0) {
+        //             newArr.push(item)
+        //         }
+        //     })
+        //     console.log(arr);
+        //     return Math.max(...newArr)
+        // }
+        // console.log(max`0${a}1${b}2${c}3${d}4${e}5`);
+        
+        
+    </script>
+</body>
+</html>

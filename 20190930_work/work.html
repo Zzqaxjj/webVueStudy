@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(img/bg2.jpg);
+            padding: 40px 15px;
+            display: flex;
+        }
+        .box {
+            width: 100px;
+            height: 120px;
+            padding: 5px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 3px;
+            margin-right: 50px;
+        }
+        .box img {
+            width: 90px;
+            height: 90px;
+        } 
+        .box:hover {
+            -moz-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        span {
+            font-size: 14px;
+        }
+        .box2 {
+            width: 90px;
+            height: 140px;
+            padding: 5px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 3px;
+            transform: skew(-10deg,5deg);
+            margin-right: 50px;
+        }
+        .box2 img {
+            width: 80px;
+            height: 110px;
+        } 
+        .box2:hover {
+            transition: 1s;
+            transform: skew(10deg,-5deg);
+            -moz-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        .box3 {
+            width: 90px;
+            height: 140px;
+            padding: 5px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 3px;
+            transform: skew(10deg,-10deg);
+            margin-right: 50px;
+        }
+        .box3 img {
+            width: 80px;
+            height: 110px;
+        } 
+        .box3:hover {
+            transition: 1s;
+            transform: skew(-10deg,10deg);
+            -moz-transform: scale(1.5);
+            transform: scale(1.5);
+        }
+        .box4 {
+            width: 100px;
+            height: 120px;
+            padding: 5px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 3px;
+            margin-right: 50px;
+        }
+        .box4 img {
+            width: 90px;
+            height: 90px;
+        } 
+    </style>
+</head>
+<body>
+        <div class="box">
+            <img src="img/pic1.jpg" alt="">
+            <span>星期一</span>
+        </div>
+        <div class="box2">
+            <img src="img/pic2.jpg" alt="">
+            <span>星期二</span>
+        </div>
+        <div class="box3">
+            <img src="img/pic3.jpg" alt="">
+            <span>星期三</span>
+        </div>
+        <div class="box4">
+            <img src="img/pic4.jpg" alt="">
+            <span>星期四</span>
+        </div>
+</body>
+</html>

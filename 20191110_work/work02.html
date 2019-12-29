@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // 超过5条留言 删除第一条
+            /* 获取元素 */
+            function $(attr) {
+                return document.querySelector(attr);
+            }
+            var btn = $('#btn');
+            var oDiv = document.createElement('div');
+            document.body.appendChild(oDiv);
+            btn.addEventListener('click',function(){
+                var txt = $('#txt');
+                var oP = document.createElement('p');
+                oP.innerHTML = txt.value;
+                oDiv.insertBefore(oP,oDiv.children[0]);
+                txt.value = '';
+                var len = oDiv.children.length;
+                if (len > 5) {
+                    //oDiv.children[len-1].remove();
+                    oDiv.removeChild(oDiv.children[len-1]);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt">
+    <input type="button" value="新增留言" id="btn">
+</body>
+</html>

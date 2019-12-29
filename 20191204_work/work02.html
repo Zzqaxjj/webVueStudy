@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        ul li {
+            float: left;
+        }
+        ul>li>img {
+            width: 69px;
+            height: 69px;
+            margin-left: 5px;
+        }
+        .on {
+            width: 224px;;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="start"><img src="./img/a.jpg" alt=""><img src="./img/A.png" alt=""></li>
+            <li><img src="./img/b.jpg" alt=""><img src="./img/B.png" alt=""></li>
+            <li><img src="./img/c.jpg" alt=""><img src="./img/C.png" alt=""></li>
+            <li><img src="./img/d.jpg" alt=""><img src="./img/D.png" alt=""></li>
+            <li><img src="./img/e.jpg" alt=""><img src="./img/E.png" alt=""></li>
+            <li><img src="./img/f.jpg" alt=""><img src="./img/F.png" alt=""></li>
+            <li><img src="./img/g.jpg" alt=""><img src="./img/G.png" alt=""></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="./js/jquery.main.js"></script>
+    <script>
+        $(function() {
+            var ul = $('ul');
+            $('.start').children('img:first').hide();
+            $('.start').children('img:last').show().addClass('on');
+            for (var i=1;i<=6;i++) {
+                ul.children('li:eq('+i+')').children('img:eq(1)').hide();
+            }
+            ul.mouseover(function(e) {
+                var e = e || window.event;
+                animateIn(e);
+            });
+            ul.mouseout(function(e) {
+                var e = e || window.event;
+                animateOut(e);
+            })
+            /* 初始化状态 */
+            function init(){
+                for (var i=0;i<=6;i++) {
+                    ul.children('li:eq('+i+')').children('img:eq(0)').show();
+                    ul.children('li:eq('+i+')').children('img:eq(1)').hide();
+                }
+            }
+            /* 鼠标移入 */
+            function animateIn(e) {
+                init();
+                $(e.target).parent().children('img:first').stop().fadeOut(500).hide();
+                $(e.target).parent().children('img:last').stop().animate({width:224,opacity:1},800);
+            }
+            /* 鼠标移出 */
+            function animateOut(e) {
+                init();
+                $(e.target).parent().children('img:first').stop().animate({width:69,opacity:1},800);
+                $(e.target).parent().children('img:last').stop().fadeOut(500).hide();
+            }
+        });
+    </script>
+</body>
+</html>

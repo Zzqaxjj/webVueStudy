@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        #small>img {
+            width: 200px;
+            height: 200px;
+        }
+        #mask {
+            width: 120px;
+            height: 120px;
+            top: 0;
+            left: 0;
+            background-color: rgba(238, 235, 235, 0.7);
+            position: absolute;
+            display: none;
+            cursor: move;
+        }
+        #small {
+            position: relative;
+        }
+        #big {
+            width: 300px;
+            height: 300px;
+            margin-left: 210px;
+            position: absolute;
+            display: none;
+            overflow: hidden;
+        }
+        #big>img {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+        <div id='small'>
+            <img src="./img/small.jpg" alt="" />
+            <div id='mask'></div>
+        </div>
+    </div>
+    <div id='big'><img id='bigImg' src="./img/small.jpg" alt=""></div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var box = $('box');
+        var small = $('small');
+        var mask = $('mask');
+        var big = $('big');
+        var bigImg = $('bigImg');
+        /* 鼠标移入显示遮罩层与big图 */
+        small.onmouseover = function() {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        }
+        /* 鼠标移出隐藏遮罩层与big图 */
+        small.onmouseout = function() {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        }
+        /* 鼠标移动 */
+        small.onmousemove = function(e) {
+            var e = e || event;
+            var x = e.pageX - box.offsetLeft - mask.offsetWidth/2;
+            var y = e.pageY - box.offsetTop - mask.offsetHeight/2;
+            /* 求移动最大区间 */
+            var maxL = box.offsetWidth - mask.offsetWidth;
+            var maxT = box.offsetWidth - mask.offsetWidth;
+            x = x<0?0:(x>maxL?maxL:x);
+            y = y<0?0:(y>maxT?maxT:y);
+            mask.style.left = x+'px';
+            mask.style.top = y+'px';
+            var imgL = -x*big.offsetWidth/small.offsetWidth;
+            var imgT = -y*big.offsetHeight/small.offsetHeight;
+            console.log(imgL,imgT)
+            bigImg.style.left = imgL + 'px';
+            bigImg.style.top = imgT + 'px';
+        }
+
+
+    </script>
+</body>
+</html>

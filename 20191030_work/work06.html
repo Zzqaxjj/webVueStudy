@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1 文本框   按钮  列表
+	
+        文本框输入内容  点击留言按钮  根据内容创建一个 li 新的内容置顶  超过5条 删除一条
+
+    -->
+    <script src="../tools/tools.js"></script>
+    <script>
+        var inp = document.createElement('input');
+        var btn = document.createElement('button');
+        var ul = document.createElement('ul');
+        btn.innerHTML = '提交';
+        btn.id = 'btn';
+        ul.id = 'ul';
+        ul.style.listStyle = 'none';
+        inp.id = 'inp';
+        inp.type = 'text';
+        document.body.appendChild(inp);
+        document.body.appendChild(btn);
+        document.body.appendChild(ul);
+        
+        $('btn').onclick = function(){
+            var li = document.createElement('li');
+            li.innerHTML = $('inp').value;
+            $('ul').insertBefore(li,$('ul').children[0]);
+            $('inp').value = '';
+            console.dir($('ul').children)
+            if ($('ul').children.length > 5) {
+                $('ul').children[$('ul').children.length-1].remove();
+            }
+        }
+    </script>
+</body>
+</html>

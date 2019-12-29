@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        .box {
+            width: 302px;
+            margin: 0 auto;
+        }
+        li {
+            height: 30px;
+            line-height: 30px;
+            width: 100px;
+            float: left;
+            text-align: center;
+            border-left:1px solid #000;
+        }
+        li:first-child {
+            border-left:0;
+        }
+        a {
+            display: block;
+            width: 100%;
+            color: black;
+            background-color: #ccc;
+        }
+        .content {
+            width: 302px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="top">
+            <ul>
+                <li><a href="#1">新闻</a></li>
+                <li><a href="#2">图片</a></li>
+                <li><a href="#3">军事航空</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div id='1'>新闻</div>
+            <div id='2'>图片</div>
+            <div id='3'>军事航空</div>
+        </div>
+    </div>
+    
+</body>
+</html>

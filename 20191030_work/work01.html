@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var lis = document.getElementsByTagName('li');
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].onmouseover = function() {
+                    this.style.backgroundColor = 'red';
+                }
+                lis[i].onmouseout = function() {
+                    this.style.backgroundColor = 'white';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>练习 1 鼠标放入li 当前li背景色变红 离开去除颜色</h2>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+</body>
+</html>

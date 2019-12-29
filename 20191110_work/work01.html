@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    行数<input type="text" name="" id="trs">
+    列数<input type="text" name="" id="tds">
+    <input type="button" value="创建" id='btn' />
+    <script>
+        // 根据行列数创建表格 表格的每一行再增加一列删除列
+        /* 获取元素 */
+        function $(attr) {
+            return document.querySelector(attr);
+        }
+        var tab = document.createElement('table');
+        tab.border = 1;
+        var trs = $('#trs');
+        var tds = $('#tds');
+        var btn = $('#btn');
+        btn.addEventListener('click',function(){
+            if (trs.value && tds.value) {
+                var trLen = parseInt(trs.value);
+                var tdLen = parseInt(tds.value);
+                console.log(trLen,tdLen);
+                for (var i=0;i<trLen;i++) {
+                    var tr = document.createElement('tr');
+                    for (var j=0;j<tdLen;j++) {
+                        var td = document.createElement('td');
+                        td.width = '30px';
+                        tr.appendChild(td);
+                    }
+                    var td = document.createElement('td');
+                    td.width = '30px';
+                    var delBtn = document.createElement('input');
+                    delBtn.style = 'button';
+                    delBtn.value = '删除';
+                    delBtn.style.width = '30px';
+                    delBtn.addEventListener('click',function(){
+                        this.parentNode.parentNode.remove();
+                    })
+                    td.appendChild(delBtn);
+                    tr.appendChild(td);
+                    tab.appendChild(tr);
+                }
+                document.body.appendChild(tab);
+            } else {
+                alert('请输入正确的行数或列数！！！')
+            }
+        });
+        
+    </script>
+</body>
+</html>

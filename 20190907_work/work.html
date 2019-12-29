@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            width: 800px;
+            padding: 10px 30px 70px;
+            border-bottom:1px solid #ccc;
+        }
+        .topFirst {
+            width: 4px;
+            height: 24px;
+            background-color: #008cd8;
+            display: block;
+            margin-right: 10px;
+            float: left;
+        }
+        header {
+            height: 24px;
+            width: 100%;
+            line-height: 24px;
+            margin-bottom: 25px;
+        }
+        header span {
+            font-size: 18px;
+            color: #6e6e6e;
+            float: left;
+        }
+        .leftBox {
+            width: 120px;
+            height: 20px;
+            line-height: 20px;
+            text-align: right;
+            float: left;
+        }
+        .leftStyle {
+            font-size: 14px;
+            color: #6e6e6e;
+        }
+        .rightBox {
+            width: 680px;
+            height: 20px;
+            line-height: 20px;
+            float: left;
+        }
+        .rightStyle {
+            font-size: 14px;
+            color: #6e6e6e;
+        }
+        .addr1 {
+            width: 15%;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 3px;
+            border: 1px solid #d6d6d6;
+        }
+        .addr2 {
+            width: 35%;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 3px;
+            border: 1px solid #d6d6d6;
+        }
+        .addr3 {
+            width: 35%;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 3px;
+            border: 1px solid #d6d6d6;
+        }
+        .inputStyle {
+            height: 20px;
+            line-height: 20px;
+            border-radius: 3px;
+            border: 1px solid #d6d6d6;
+        }
+        .inputStyle1 {
+            height: 80px;
+            width: 85%;
+            line-height: 20px;
+            border-radius: 3px;
+            border: 1px solid #d6d6d6;
+        }
+        .clear {
+            height: 20px;
+            width: 100%;
+            clear: both;
+        }
+        input::placeholder {
+            font-size: 12px;
+            color: #dedede;
+            padding-left: 5px;
+        }
+        .button1 {
+            width: 114px;
+            height: 36px;
+            color: #fff;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .button2 {
+            width: 114px;
+            height: 36px;
+            color: #fff;
+            background-color: rgb(216, 94, 12);
+            border: 1px solid rgb(216, 94, 12);
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        .footer {
+            margin-top: 40px;
+            width: 800px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id='from1'>
+        <header><span class="topFirst"></span><span>联系人信息</span></header>
+        <div class="box">
+            <div><div class="leftBox"><span class="leftStyle">联系人姓名：</span></div><div class="rightBox"><input type='text' class="inputStyle" placeholder="长度不超过25个字" /></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"><span class="leftStyle">手机号码：</span></div><div class="rightBox"><input type="tel" class="inputStyle" placeholder="11位手机号码" /></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"><span class="leftStyle">电子邮箱：</span></div><div class="rightBox"><input type="email" class="inputStyle" placeholder="接收签证相关资料的邮箱地址" /></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"><span class="leftStyle">收件地址：</span></div>
+                <div class="rightBox">
+                    <input type="text" class="addr1" list='citys' placeholder="请选择" />
+                    <datalist id='citys'>
+                        <option label="北京" value="北京"></option>
+                        <option label="上海" value="上海"></option>
+                        <option label="深圳" value="深圳"></option>
+                    </datalist>
+                    <input type="text" class="addr2" list='citys' placeholder="请选择" />
+                    <datalist id='citys'>
+                        <option label="北京" value="北京"></option>
+                        <option label="上海" value="上海"></option>
+                        <option label="深圳" value="深圳"></option>
+                    </datalist>
+                    <input type="text" class="addr3" list='citys' placeholder="请选择" />
+                    <datalist id='citys'>
+                        <option label="北京" value="北京"></option>
+                        <option label="上海" value="上海"></option>
+                        <option label="深圳" value="深圳"></option>
+                    </datalist>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div style='height:80px;'><div class="leftBox"></div><div class="rightBox"><input type='text' class="inputStyle1" placeholder="" /></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"><span class="leftStyle">是否需要发票：</span></div><div class="rightBox"><input type="radio" checked='checked' name="radio1" /><span class="rightStyle" name="radio1">是</span><input type="radio" name="radio1" /><span class="rightStyle" name="radio1">否</span></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"></div><div class="rightBox"><input type="radio" checked='checked' name="radio2" /><span class="rightStyle">个人发票</span></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"></div><div class="rightBox"><input type="radio" name="radio2" /><span class="rightStyle">单位发票</span></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"></div><div class="rightBox"><input type='text' class="inputStyle" placeholder="请输入发票抬头" /></div></div> 
+            <div class="clear"></div>
+            <div><div class="leftBox"></div><div class="rightBox"><input type='text' class="inputStyle" placeholder="请输入发票收件地址" /></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"></div><div class="rightBox"><input type="radio" checked='checked' name="radio3" /><span class="rightStyle">平邮免付</span></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"></div><div class="rightBox"><input type="radio" name="radio3" /><span class="rightStyle">快递到付</span></div></div>
+            <div class="clear"></div>
+            <div><div class="leftBox"><span class="leftStyle">附加说明：</span></div><div class="rightBox"><input type='text' class="inputStyle1" placeholder="" /></div></div>
+            <div class="clear"></div>
+        </div>
+    </form>
+    <div class="footer">
+        <input class="button1" type="reset" form="from1" value="返回" /><input class="button2" type="submit" form="from1" value="提交订单" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        input {
+            display: inline-block;
+            width: 200px;
+            margin-left: 50px;
+        }
+        #msg {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var txt = document.getElementsByTagName('input')[0];
+            var msg = document.getElementById('msg');
+            console.dir(msg)
+            txt.onfocus = function() {
+                this.value = '';
+                msg.style.display = 'none';
+            }
+            txt.onblur = function() {
+                if (this.value != '') {
+                    if (isNaN(this.value)) {
+                        msg.style.display = 'inline-block';
+                        msg.style.color = 'red';
+                        msg.innerHTML = '内容不合法';
+                        msg.style.fontSize = '14px';
+                    } else if (this.value.length < 6){
+                        msg.style.display = 'inline-block';
+                        msg.style.color = 'red';
+                        msg.innerHTML = '长度不够';
+                        msg.style.fontSize = '14px';
+                    } else {
+                        msg.style.display = 'inline-block';
+                        msg.style.color = 'green';
+                        msg.innerHTML = '正确';
+                        msg.style.fontSize = '14px';
+                    } 
+                } else {
+                    msg.style.display = 'inline-block';
+                    msg.style.color = 'red';
+                    msg.innerHTML = '不能为空';
+                    msg.style.fontSize = '14px';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2> 练习4
+        文本框获取焦点，清空信息
+        文本框失去焦点时，
+        如果为空 ，提示  不能为空，
+        如果为非数字，提示不合法，
+        如果长度小于6，提示“长度不够”
+        如果为数字，提示正确
+    </h2>
+    <input type="text" name="" id="" value ='请输入...' /> <span id='msg'></span>
+
+</body>
+</html>

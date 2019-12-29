@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            left:0;
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="box" class="box"></div>
+    </div>
+    <script src="tools.js"></script>
+    <script>
+        var box = $('#box');
+        moveSynchronization(box,{'width':'800px','height':'500px','left':'300px'})
+        //var s = getStyle(box,'left')
+    </script>
+</body>
+</html>

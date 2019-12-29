@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        ul>li {
+            float: left;
+            width: 80px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #ccc;
+            border-right:1px solid #fff;
+        }
+        a {
+            text-decoration: none;
+            display: block;
+            width: 80px;
+        }
+        #content{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li><a href="#1">首页</a></li>
+            <li><a href="#2">新闻</a></li>
+            <li><a href="#3">财经</a></li>
+        </ul>
+    </div>
+    <br />
+    <div id="content">
+        <div id="1">官网首页</div>
+        <div id="2">官网新闻</div>
+        <div id="3">官网财经</div>
+    </div>
+    <script src="./js/jquery.main.js"></script>
+    <script>
+        /* 默认首页 */
+        $('ul').children('li:first').css('backgroundColor','#fff');
+        $('#content').show();
+        $('#content').children('div:eq(0)').siblings().hide();
+        $('ul').children().click(function(e) {
+            var e = e || window.event;
+            $(e.target).parent().siblings().css('backgroundColor','#ccc');
+            $(e.target).parent().css('backgroundColor','#fff');
+            var index = $(e.target).attr('href');
+            $(index).show();
+            $(index).siblings().hide();
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2 动态创建表格
+        文本框  输入行
+        文本框  输入列
+        按钮  创建表格
+        在表格每一行最后添加一个 td 表示删除 点击删除可以删除当前所在行
+        除了最后一个 td 以外，所有的 td 设置背景色为随机颜色
+    -->
+    <script src="../tools/tools.js"></script>
+    <script>
+        var tab = document.createElement('table');
+        var trs = document.createElement('input');
+        var tds = document.createElement('input');
+        var btn = document.createElement('button');
+        btn.innerHTML = '创建表格';
+        btn.id = 'btn';
+        trs.id = 'trs';
+        tds.id = 'tds';
+        tab.id = 'tab';
+        document.body.appendChild(trs);
+        document.body.appendChild(tds);
+        document.body.appendChild(btn);
+        document.body.appendChild(tab);
+        tab.border = 1;
+        var index = 0;
+        btn.onclick = function(){
+            var tdStr = '';
+            for (let i=0;i<parseInt($('trs').value);i++){
+                let tr = document.createElement('tr');
+                index = i
+                for(let j=0;j<parseInt($('tds').value);j++){
+                    var td = document.createElement('td');
+                    td.style.backgroundColor = getRandomColor();
+                    if (j == parseInt($('tds').value)-1) {
+                        let btn2 = document.createElement('button');
+                        btn2.innerHTML = '删除';
+                        td.appendChild(btn2);
+                        btn2.onclick = function(){
+                           // console.dir(tr)
+                           $('tab').removeChild(btn2.parentNode.parentNode);
+                        }
+                    } else {
+                        td.innerHTML = j;
+                    }
+                    tr.appendChild(td)
+                }
+                $('tab').appendChild(tr)
+            }
+        }
+    </script>
+</body>
+</html>

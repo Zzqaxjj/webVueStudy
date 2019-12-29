@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滚动置顶</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 800px;
+            height: 1000px;
+            background-color: gray;
+            overflow: auto;
+        }
+        #content {
+            margin: 0 auto;
+            width: 500px;
+            height: 3000px;
+            border: 1px solid #ccc;
+            background-color: skyblue;
+        }
+        #right {
+            width: 50px;
+            height: 300px;
+            position: relative;
+            top: 100px;
+            left: 390px;
+            background-color: #fff;
+            border: 1px solid red;
+            text-align: center;
+        }
+        .on {
+            font-size: 20px;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="content">
+                <div id="right"></div>
+        </div>
+    </div>
+    <script src="./js/tools.js"></script>
+    <script>
+        var box = $('#box');
+        var content = $('#content');
+        var oDiv = $('#right');
+        box.addEventListener('scroll',function() {
+            console.log(this.scrollTop)
+            if(this.scrollTop > 90 && this.scrollTop <= 190) {
+                console.log(oDiv.style.position)
+                oDiv.style.position = 'fixed';
+                oDiv.style.top = '10px';
+                oDiv.style.left = '540px';
+                oDiv.innerHTML = '';
+            } else if (this.scrollTop > 190) {
+                oDiv.style.position = 'fixed';
+                oDiv.style.top = '10px';
+                oDiv.style.left = '540px';
+                oDiv.innerHTML = '返回';
+                oDiv.className = 'on';
+            }else{
+                oDiv.style.position = 'relative';
+                oDiv.style.top = '100px';
+                oDiv.style.left = '390px';
+                oDiv.innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>

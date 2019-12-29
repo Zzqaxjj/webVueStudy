@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1、京东按键输入内容  按下S键 光标定位到搜索框 focus（） -->
+    搜索：<input type="text" name="" id="txt">
+    <script>
+        var txt = document.querySelector('#txt');
+        document.onkeyup = function(e){
+            if (e.keyCode == 83) {
+                txt.focus();
+            }
+        }
+    </script>
+</body>
+</html>

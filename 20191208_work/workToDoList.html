@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body {
+            background-color: rgb(236, 195, 195);
+        }
+        #top {
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+        }
+        #top label {
+            font-size: 24px;
+            margin-right: 200px;
+        }
+        #top input {
+            position: relative;
+            width: 300px;
+            height: 25px;
+            border-radius: 3px;
+            border: 1px solid black;
+            top:-4px;
+        }
+        #runing {
+            width: 40%;
+            margin: 30px auto;
+        }
+        #finish {
+            width: 40%;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="top"><label>ToDoList</label><input type="text"/></div>
+    <div id="runing">
+        <h2><label>正在进行</label><label id='runingNum'>0</label></h2>
+        <ul></ul>
+    </div>
+    <div id="finish">
+        <h2><label>已经完成</label><label id='finishNum'>0</label></h2>
+        <ul></ul>
+    </div>
+    <script src="./js/jquery.main.js"></script>
+    <script>
+        $(function() {
+            $('input').change(function(){
+                $('#runing ul').prepend($('<li><input type="checkbox" />'+$('input').val()+'<button>删除</button></li>'));
+                $('input').val('');
+                $('#runingNum').html($('#runing ul').children().length);
+            });
+            $('#runing ul').on({
+                click:function(e){
+                    var e = e || window.event;
+                    if (e.target.checked) {
+                        $(e.target).parent().prependTo($('#finish ul'));
+                    }
+                    if ($(e.target).html() == '删除') {
+                        $(e.target).parent().remove();
+                    }
+                    $('#runingNum').html($('#runing ul').children().length);
+                    $('#finishNum').html($('#finish ul').children().length);
+                }
+            });
+            $('#finish ul').on({
+                click:function(e){
+                    var e = e || window.event;
+                    if (e.target.checked == false) {
+                        $(e.target).parent().prependTo($('#runing ul'));
+                    }
+                    if ($(e.target).html() == '删除') {
+                        $(e.target).parent().remove();
+                    }
+                    $('#runingNum').html($('#runing ul').children().length);
+                    $('#finishNum').html($('#finish ul').children().length);
+                }
+            });
+
+            console.log(Object.prototype.__proto__);
+            
+        });
+    </script>
+</body>
+</html>

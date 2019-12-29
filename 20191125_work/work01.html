@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            margin: 200px;
+            position: relative;
+        }
+        #small {
+            width: 200px;
+            height: 200px;
+        }
+        #mask {
+            width: 120px;
+            height: 120px;
+            opacity: 0.5;
+            background-color: gainsboro;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            display: none;
+        }
+        #big {
+            position: absolute;
+            left: 410px;
+            top: 100px;
+            width: 300px;
+            height: 300px;
+            display: none;
+            overflow: hidden;
+        }
+        #bigImg {
+            width: 450px;
+            height: 450px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="./img/small.jpg" alt="" id="small" />
+        <div id="mask"></div>
+    </div>
+    <div id="big">
+        <img src="./img/small.jpg" alt="" id="bigImg">
+    </div>
+    <script src="./js/tools.js"></script>
+    <script>
+        var box = $('#box');
+        var small = $('#small');
+        var mask = $('#mask');
+        var big = $('#big');
+        var bigImg = $('#bigImg');
+        box.onmouseover = function (){
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        }
+        box.onmouseout = function (){
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        }
+        small.onmousemove = function(e){
+            var e = e || window.event;
+            var x = e.pageX - box.offsetLeft - mask.offsetWidth/2;
+            var y = e.pageY - box.offsetTop - mask.offsetHeight/2;
+            var maxL = box.offsetWidth - mask.offsetWidth;
+            var maxT = box.offsetWidth - mask.offsetWidth;
+            x = x<0?0:(x>maxL?maxL:x);
+            y = y<0?0:(y>maxT?maxT:y);
+            mask.style.left = x + 'px';
+            mask.style.top = y + 'px';
+            var imgL = -x*bigImg.offsetWidth/small.offsetWidth;
+            var imgT = -y*bigImg.offsetHeight/small.offsetHeight;
+            bigImg.style.left = imgL + 'px';
+            bigImg.style.top = imgT + 'px';
+        }
+    </script>
+</body>
+</html>

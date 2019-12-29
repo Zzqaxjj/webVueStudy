@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var lis = document.getElementsByTagName('li');
+            for (var i = 0; i < lis.length; i++) {
+                if (i%2) {
+                    lis[i].style.backgroundColor = 'yellow';
+                    lis[i].onmouseover = function() {
+                        this.style.backgroundColor = 'blue';
+                    }
+                    lis[i].onmouseout = function() {
+                        this.style.backgroundColor = 'yellow';
+                    }
+                }else {
+                    lis[i].style.backgroundColor = 'skyblue';
+                    lis[i].onmouseover = function() {
+                        this.style.backgroundColor = 'blue';
+                    }
+                    lis[i].onmouseout = function() {
+                        this.style.backgroundColor = 'skyblue';
+                    }
+                } 
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>练习 2 在隔行变色基础上 鼠标移入当前元素变蓝色 离开恢复之前的颜色</h2>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    
+</body>
+</html>

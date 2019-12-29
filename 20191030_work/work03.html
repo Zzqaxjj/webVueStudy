@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var sel = document.getElementById('sel');
+            sel.onchange = function() {
+                if (this.value) {
+                    document.body.style.backgroundColor = this.value;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>练习3 下拉列表 列出三个颜色 选中某种颜色 网页（document.body）就设置该颜色</h2>
+    <select name="" style="margin-left: 50px;" id="sel">
+        <option value="white">请选择要设置的背景色</option>
+        <option value="red">红色</option>
+        <option value="blue">蓝色</option>
+        <option value="skyblue">天蓝色</option>
+        <option value="green">绿色</option>
+        <option value="yellow">黄色</option>
+    </select>
+</body>
+</html>

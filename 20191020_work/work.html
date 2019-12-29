@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1、编写函数map(arr) 把数组中的每一位数字都增加30% -->
+    <script>
+        var arr = [10,20,30,40];
+        function map(arr) {
+            return arr.map(function(item,index,arr){
+                return item+=(item*0.3);
+            })
+        }
+        //console.log(map(arr));
+    </script>
+
+    <!-- 2、编写函数has(arr , 60) 判断数组中是否存在60这个元素，返回布尔类型 -->
+    <script>
+        function has(arr, n) {
+            var flag = arr.indexOf(n);
+            return flag !== -1?true:false;
+        }
+        arr = [11,55,11,48,9,748,60];
+        //console.log(has(arr,60));
+    </script>
+
+    <!-- 3、编写函数norepeat(arr) 将数组的重复元素去掉，并返回新的数组 -->
+    <script>
+        var arr = [11,55,4,6,74,4,11,8];
+        function norepeat(arr) {
+            var newArr = [];
+            arr.forEach(function (item,index,arr){
+                if (newArr.indexOf(item) === -1) {
+                    newArr.push(item);
+                }
+            });
+            return newArr;
+        }
+        //console.log(norepeat(arr));
+    </script>
+
+    <!-- 4、有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+        例如  原数组  [3,10,49,89,100]
+        插入一个数 15
+        新数组为   [3,10,15,49,89,100]
+    -->
+    <script>
+        var arr = [3,10,49,89,100],num =15;
+        function setNum(arr,num) {
+            arr.forEach(function(item,index,arr) {
+                if (item < num && arr[index+1] >num) {
+                    arr.splice(index+1,0,num);
+                }
+            })
+            return arr;
+        }
+        //console.log(setNum(arr,num));
+    </script>
+
+    <!-- 5、定义一个含有10个元素的数组  计算下标为奇数的元素的平均数（自定义函数实现） -->
+    <script>
+        var arr = [1,2,3,4,5,6,7,8,9,10];
+        function getNum(arr) {
+            var sum = 0;
+            arr.forEach(function(item,index,arr) {
+                if (index%2 ===0) {
+                    sum += item;
+                }
+            });
+            return sum / 5;
+        }
+        //console.log(getNum(arr));
+    </script>
+
+    <!-- 6 某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：
+        //每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换，
+        // 请编写一个函数，传入原文，输出密文
+    -->
+    <script>
+        var oldNum = 1234;
+        function changeNum (oldNum) {
+            var newArr = [];
+            var arr = oldNum.toString().split('');
+            newArr = arr.map(function(item,index,arr){
+                return item = parseInt(item)+5;
+            })
+            var temp = newArr[0];
+            newArr[0] = newArr[3];
+            newArr[3] = temp;
+            var temp2 = newArr[1];
+            newArr[1] = newArr[2];
+            newArr[2] = temp2;
+            return newArr.join('');
+        }
+        //console.log( changeNum (oldNum));
+    </script>
+
+    <!-- 7 var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+        找到arr中的数字
+        找到arr中可以转成数字的
+        找到arr中可以转成数字的最大值
+    -->
+    <script>
+        var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+        var newArr = [],newArr2=[],newArr3=[];
+        arr.forEach(function(item,index,arr){
+            if (typeof item == 'number' && !isNaN(item)) {
+                newArr.push(item);
+            }
+        })
+        arr.forEach(function(item,index,arr){
+            if (!isNaN(parseFloat(item))){
+                newArr2.push(parseFloat(item));
+            }
+        })
+        var newArr3 = newArr2.sort(function(a,b){
+            return a-b;
+        })
+        // console.log(newArr);
+        // console.log(newArr2);
+        // console.log(newArr3[newArr3.length-1]);
+        
+    </script>
+
+    <!-- 8  定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程。 -->
+    <script>
+        function Fun() {
+            var arr=[];
+            for (var i=1;i<=30;i++) {
+                arr.push(2*i);
+            }
+            var newArr=[];
+            //console.log(arr);
+            var sum = 0;
+            arr.forEach(function(item,index,arr){
+                if ((index>0 && index %5 === 0) || index === 0){
+                    arr.slice(index,index+5).forEach(
+                        function(item,index,arr){
+                            sum += parseInt(item);
+                        });
+                    //console.log(sum);
+                    newArr.push(sum/5);
+                    sum = 0;
+                }
+            })
+            return newArr
+        }
+        console.log(Fun());
+    </script>
+</body>
+</html>

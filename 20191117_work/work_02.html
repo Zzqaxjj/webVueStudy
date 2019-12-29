@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            padding: 50px;
+        }
+        #box {
+            margin-left: 64px;
+            width: 173px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 2、文本框输入内容，调取一个大的显示内容 -->
+    <div id="box">
+        <span id="bigShow"></span>
+    </div>
+    搜索框：<input type="text" name="" id="txt">
+    <script>
+        var box = document.querySelector("#box");
+        var bigShow = document.querySelector("#bigShow");
+        var txt = document.querySelector('#txt');
+        txt.onkeyup = function(){
+            if (txt.value) {
+                box.style.display = 'block';
+                bigShow.style.fontSize = '24px';
+                bigShow.innerHTML = txt.value;
+            } else {
+                box.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

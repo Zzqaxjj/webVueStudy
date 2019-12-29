@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+</head>
+<body>
+	<h2>作业在body里注释掉了！！！</h2>
+    <script type="text/javascript">
+        /* 1、打印1000到2019中所有的闰年，以每行4个数形式输出 */ 
+        // for (var i= 1000,num = 0; i<= 2019; i++) {
+        //     if (i%400 === 0 || (i%4=== 0 && i%100 != 0)) {
+        //         num ++;
+        //         document.write(i+ '  ');
+        //         if (num%4 === 0) {
+        //             document.write('<br />'); 
+        //         }
+        //     }
+        // }
+        /* 2、任意输入一个正整数 判断这个整数是几位数 */
+        // var num = prompt('请输入一个正整数');
+        // var len = num.toString().length;
+        // document.write('这个正整数是'+len+'位数'); 
+        /* 3、输出m - n 之间所有偶数和与奇数和以及偶数与奇数个数（用户自己输入 要求m<n） */
+        // var m = parseInt(prompt('请输入求取区间第一个值！'));
+        // var n = parseInt(prompt('请输入求取区间第二个值！'));
+        // var max,min,oddSum = 0,oddLen = 0,evenSum = 0,evenLen = 0;
+        //     max = m > n ? m : n;
+        //     min = m > n ? n : m;
+        //     for (var i = min;i <= max;i++) {
+        //         if (i % 2) {
+        //             oddSum += i;
+        //             oddLen++
+        //         } else {
+        //             evenSum += i;
+        //             evenLen++;
+        //         }
+        //     }
+        //     document.write('偶数个数为： '+evenLen+' ，偶数和为： '+ evenSum); 
+        //     document.write('奇数个数为： '+oddLen+' ，奇数和为： '+ oddSum);
+        /* 4、一个员工入职10K 每年涨幅5% 8年后月薪多少 */
+        // var money = 10000,i=1;
+        // while(i<=8){
+        //     money = money*(1+0.05);
+        //     i++;
+        // }
+        // document.write('8年后月薪为： '+money.toFixed(2)); 
+        /* 5、打印九九乘法口诀表 */
+        // for(var i=1;i<=9;i++){
+        //     for(var j=1;j<=i;j++){
+        //         document.write(j + '*' + i + '=' + (i*j) + ' ');
+        //     }
+        //     document.write('<br />');
+        // }
+        /* 6、打印图形： 这个完成两种简单的，空心菱形与实心菱形没有打印出来*/
+        // for(var i=1;i<=9;i++){
+        //     for(var j=1;j<=i;j++){
+        //         document.write('*' + ' ');
+        //     }
+        //     document.write('<br />');
+        // }
+        // for(var i=1;i<=7;i+=2){
+        //     for(var n=i;n<=7;n++){
+        //         document.write('&nbsp;');
+        //     }
+        //     for(var j=1;j<=i;j++){
+        //         document.write('*' + ' ');
+        //     }
+        //     document.write('<br />');
+        // }
+        /* 7、找出所有水仙花数 水仙花数是一个三位数 每位上的数的立方和等于他自己 153 = 1^3 + 5^3 + 3^3 */
+        // for (var i=100;i<=999;i++) {
+        //     var sum = 0;
+        //     var str = i.toString();
+        //     for (var j=0;j<str.length;j++) {
+        //         sum += Math.pow(parseInt(str.charAt(j)),3);//Math.pow(m,n);值m的n次幂
+        //     }
+        //     if (sum == i) {
+        //         document.write(i + '是水仙花数<br />');
+        //     }
+        // }
+        /* 8、统计100-200之间素数个数 */
+        // var sum = 0;
+        // for (var i=100;i<=200;i++) {
+        //     var flag = true;
+        //     for (var j=2;j<(i/2);j++) {
+        //         if (i % j == 0) {
+        //             flag = false;
+        //             break;
+        //         }
+        //     }
+        //     if (flag) {
+        //         sum++;
+        //         //document.write(i + '是素数<br />');
+        //     }
+        // }
+        // document.write(sum + '个素数<br />');
+    </script>
+
+
+
+</body>
+</html>

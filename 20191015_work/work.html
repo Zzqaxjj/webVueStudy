@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1、输出m--n之间的闰年 -->
+    <script>
+        function getRunYear(m,n){
+            var max = m>n?m:n;
+            var min = m>n?n:m;
+            var str = '';
+            for (var i = min;i< max;i++) {
+                if (i % 400 === 0 || (i%4 ===0 && i%100 !=0)) {
+                    str += i + ' ';
+                }
+            }
+            return str;
+        }
+        //console.log(getRunYear(1000,2000));
+    </script>
+
+    <!-- 2、输出1-100中（7的倍数和带7的数除外）的数 -->
+    <script>
+        function getNum(){
+            var str = '';
+            for (var i = 1;i<= 100;i++) {
+                if (i % 7 === 0 || i%10 === 7 || parseInt(i/10) === 7) {
+                } else {
+                    str += i + ' ';
+                }
+            }
+            return str;
+        }
+        //console.log(getNum());
+    </script>
+
+    <!-- 3、将3个数按从小到大的顺序输出 -->
+    <script>
+        function showSort(){
+            var x = arguments[0];
+            var y = arguments[1];
+            var z = arguments[2];
+            var str = '';
+            if (x > y) {
+                if (x > z) {
+                    if (y > z) {
+                        return z + ' ' + y +' ' + x;
+                    }
+                } else {
+                    return y + ' ' + x +' ' + z;
+                }
+            } else {
+                if (x > z) {
+                    return z + ' ' + x +' ' + y;
+                } else {
+                    if (y > z) {
+                        return x + ' ' + z +' ' + y;
+                    } else {
+                        return x + ' ' + y +' ' + z;
+                    }
+                }
+            }
+        }
+        // console.log(showSort(8,6,14));
+        // console.log(showSort(8,56,14));
+        // console.log(showSort(8,16,44));
+        // console.log(showSort(8,8,8));
+    </script>
+
+    <!-- 4、求2的平方的阶层 + 3的平方的阶层 -->
+    <script>
+        /* 平方函数 */
+        function getPf(a){
+            return a * a;
+        }
+        /* 阶层函数 */
+        function getJc(a){
+            if (a === 1) {
+                return 1;
+            }
+            return a * getJc(a-1);
+        }
+        // console.log('2的平方的阶层是：'+getJc(getPf(2)));
+        // console.log('3的平方的阶层是：'+getJc(getPf(3)));
+        // console.log(getJc(getPf(2)) + getJc(getPf(3)));
+    </script>
+
+    <!-- 5、计算100-200之间所有的素数和 -->
+    <script>
+        function getSum2() {
+            var sum = 0;
+            for (var i = 100; i<=200; i++) {
+                var flag = true;
+                for (j=2;j<i/2;j++) {
+                    if (i%j === 0){
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+       // console.log(getSum2());
+    </script>
+
+    <!-- 6、100可以拆成哪两个素数的和 -->
+    <script>
+        /* 判断是否是素数 */
+        function getSs(a){
+            var flag = true;
+            for (j=2;j<a;j++) {
+                if (a%j === 0){
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        function getNum3() {
+            var arr = []
+            for (var i = 2; i< 100; i++) {
+                var flag = true;
+                for (j=2;j<i;j++) {
+                    if (i%j === 0){
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag && getSs(100 - i) && j>i) {
+                    arr.push(i + ' ' + (100-i));
+                }
+            }
+            return arr;
+        }
+       // console.log(getNum3());
+    </script>
+
+    <!-- 7、求任意两个数的和或者差或者积或商 -->
+    <script>
+        /* 先判断运算操作 z为运算符名称  如getNum2(1,2,和/差/乘/除)*/
+        function getNum4(x,y,z) {
+            switch(z){
+                case '和': 
+                    return x + y;
+                    break;
+                case '差':
+                    return x - y;
+                    break;
+                case '乘':
+                    return x * y;
+                    break;
+                case '除':
+                    if (y!=0) {
+                        return x / y;
+                    } else {
+                        return '除数不能为0！'
+                    }
+                    break;
+                default:
+                    return '运算符不正确！'
+                    break;
+            }
+        }
+        //console.log(getNum4(1,4,'除'));
+    </script>
+
+    <!-- 8、递归输出斐波那契数列第n项 -->
+    <script>
+        function getNum5(n) {
+           if (n==1) {
+               return 0;
+           }
+           if (n==2 || n==3) {
+               return 1;
+           }
+           return getNum5(n-1)+getNum5(n-2);
+        }
+       // console.log(getNum5(8));
+    </script>
+    
+</body>
+</html>
