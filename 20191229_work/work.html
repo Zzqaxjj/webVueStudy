@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单校验-正则表达式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        form {
+            width: 800px;
+            margin: 0 auto;
+            padding: 1px 0;
+            background-color: #ccc;
+            text-align: center;
+        }
+        input {
+
+            margin-left: 10px;
+        }
+        div {
+            margin: 10px 0;
+        }
+        .right {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+    </style>
+</head> 
+<body>  
+    <form action="" >
+        <div>
+            手机号：<input type="text" name="" id="phone" /><span id='phoneMsg'></span>
+        </div>
+        <div>
+            QQ: <input type="text" name="" id="QQ" /><span id='QQMsg'></span>
+        </div>
+        <div>
+            昵称： <input type="text" name="" id="username"><span id='usernameMsg'></span>
+        </div>
+        <div>
+            短信验证码： <input type="text" name="" id="msg" /><span id='msgMsg'></span>
+        </div>
+        <div>
+            登录密码： <input type="password" name="" id="password" /><span id='passwordMsg'></span>
+        </div>
+        <div>
+            确认密码： <input type="password" name="" id="rspassword" /><span id='rspasswordMsg'></span>
+        </div>
+        <div>
+            <input type="checkbox" name="" id="agree"> 同意协议并注册 <a href="#">《知果果用户协议》</a>
+        </div>
+        <div>
+            <button>完成注册</button>
+        </div>
+    </form>
+    <script src="./tools/tools.js"></script>
+    <script>
+        /* 电话 */
+        var phoneStr = document.querySelector("#phone");
+        var phoneMsg = document.querySelector("#phoneMsg");
+        objBlur(phoneStr,phoneMsg,'phone');
+        /* QQ */
+        var QQStr = document.querySelector("#QQ");
+        var QQMsg = document.querySelector("#QQMsg");
+        objBlur(QQStr,QQMsg,'QQ');
+        /* 昵称 */
+        var usernameStr = document.querySelector("#username");
+        var usernameMsg = document.querySelector("#usernameMsg");
+        objBlur(usernameStr,usernameMsg,'username');
+        /* 短信验证码 */
+        var msgStr = document.querySelector("#msg");
+        var msgMsg = document.querySelector("#msgMsg");
+        objBlur(msgStr,msgMsg,'msg');
+        /* 登录密码 */
+        var passwordStr = document.querySelector("#password");
+        var passwordMsg = document.querySelector("#passwordMsg");
+        objBlur(passwordStr,passwordMsg,'password');
+        /* 确认密码 */
+        var rspasswordStr = document.querySelector("#rspassword");
+        var rspasswordMsg = document.querySelector("#rspasswordMsg");
+        objRsBlur(passwordStr,rspasswordStr,rspasswordMsg,'rspassword');
+    </script>
+</body>
+</html>
