@@ -7,23 +7,19 @@ class Promise {
         _this.onFulfilledCallbacks = [];
         _this.onRejectedCallbacks = [];
         function resolve (value) {
-            setTimeout(()=> {
-                if (_this.status === 'pending') {
-                    _this.status = 'resolved';
-                    _this.value = value;
-                    _this.onFulfilledCallbacks.forEach(item => item(value));
-                }
-            });
+            if (_this.status === 'pending') {
+                _this.status = 'resolved';
+                _this.value = value;
+                _this.onFulfilledCallbacks.forEach(item => item(value));
+            }
         }
 
         function reject (reason) {
-            setTimeout(()=>{
-                if (_this.status === 'pending') {
-                    _this.status = 'rejected';
-                    _this.reason = reason;
-                    _this.onRejectedCallbacks.forEach(item => item(reason));
-                }
-            });
+            if (_this.status === 'pending') {
+                _this.status = 'rejected';
+                _this.reason = reason;
+                _this.onRejectedCallbacks.forEach(item => item(reason));
+            }
         }
         try {
             exectorCallback(resolve,reject);
@@ -81,18 +77,8 @@ class Promise {
             });
         }
         if (_this.status === 'pending') {
-            // this.onFulfilledCallbacks.push(onFulfilled);
-            // this.onRejectedCallbacks.push(onRejected);
-            promise2 = new Promise((resolve,reject)=> {
-                _this.onFulfilledCallbacks.push((value)=>{
-                    let x = onFulfilled(value);
-                    onAllCallback(promise2, x, resolve, reject);
-                });
-                _this.onRejectedCallbacks.push((reason)=> {
-                    let x = onRejected(reason);
-                    onAllCallback(promise2, x, resolve, reject);
-                });
-            });
+            this.onFulfilledCallbacks.push(onFulfilled);
+            this.onRejectedCallbacks.push(onRejected);
         }
         return promise2;
     }
